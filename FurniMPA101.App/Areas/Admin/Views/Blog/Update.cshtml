@@ -1,0 +1,33 @@
+﻿@model Blog
+
+<form method="post" asp-action="Update" asp-controller="Blog" style="width: 100%; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9;">
+    <label for="Name" style="display: block; margin-bottom: 8px; font-weight: bold;">Title:</label>
+    <input type="text" asp-for=Title  style="width: 100%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+    <span asp-validation-for="Title"></span>
+
+
+    <label for="Content" style="display: block; margin-bottom: 8px; font-weight: bold;">Content:</label>
+    <input type="text" asp-for=Content  style="width: 100%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+    <span asp-validation-for="Content"></span>
+
+    <label for="ImageUrl" style="display: block; margin-bottom: 8px; font-weight: bold;">Image URL:</label>
+    <input type="text" id="ImageUrl" asp-for=ImageUrl  style="width: 100%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+    <span asp-validation-for="ImageUrl"></span>
+
+    <label for="ImageName" asp-for=ImageName style="display: block; margin-bottom: 8px; font-weight: bold;">Image Name:</label>
+    <input type="text" asp-for=ImageName style="width: 100%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+    <span asp-validation-for="ImageName"></span>
+
+
+    <select asp-for="EmployeeId">
+
+        @foreach (Employee item in ViewBag.Employees)
+        {
+            <option value="@item.Id">@item.FirstName   @item.LastName</option>
+        }
+
+    </select>
+    <button type="submit" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">Submit</button>
+
+    <a asp-action="Index" asp-controller="Blog" style="text-decoration:none;text-align:center;color:white;margin:5px 30px;width:170px;background:orangered;border-radius:2px;font-size:20px;padding:5px 12px; cursor:pointer;">Cancel</a>
+</form>

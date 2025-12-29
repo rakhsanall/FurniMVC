@@ -14,6 +14,7 @@ namespace FurniMPA101.App.Contexts
 
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
     }
 }

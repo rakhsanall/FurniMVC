@@ -17,7 +17,8 @@ namespace FurniMPA101.App.Controllers
 
         public IActionResult Index()
         {
-            List<Blog> blogs = _context.Blogs.Include(x=>x.Employee).Skip(0).Take(9).ToList();
+
+            List<Blog> blogs = _context.Blogs.OrderBy(p => p.Id).Include(x=>x.Employee).Skip(0).Take(9).ToList();
             return View(blogs);
         }
     }

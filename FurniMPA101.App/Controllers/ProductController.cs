@@ -15,7 +15,7 @@ namespace FurniMPA101.App.Controllers
         }
         public IActionResult Index()
         {
-            List<Product> products = _context.Products.Skip(0).Take(8).ToList();
+            List<Product> products = _context.Products.OrderBy(p => p.Id).Skip(0).Take(8).ToList();
             return View(products);
         }
     }

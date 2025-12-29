@@ -16,7 +16,7 @@ namespace FurniMPA101.App.Controllers
 
         public IActionResult Index()
         {
-            List<Employee> employees = _context.Employees.Skip(0).Take(4).ToList();
+            List<Employee> employees = _context.Employees.OrderBy(p=>p.Id).Skip(0).Take(4).ToList();
             return View(employees);
         }
     }
